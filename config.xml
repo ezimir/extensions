@@ -3,7 +3,7 @@
     <name>Opera Tweet</name>
 
     <author href="http://lkd.to/ezimir" email="ezimir@gmail.com">Martin Tóth</author>
-    <description>Tweet anywhere</description>
+    <description>Tweet anywhere + Shows tweet count for every URL</description>
     <icon src="twitter.png" />
 
     <access origin="http://urls.api.twitter.com/" />
