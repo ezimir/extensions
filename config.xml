@@ -2,7 +2,7 @@
 <widget xmlns="http://www.w3.org/ns/widgets" id="https://github.com/ezimir/OperaTweetExtension" version="1.0">
     <name>Opera Tweet</name>
 
-    <author href="http://lkd.to/ezimir" email="ezimir@gmail.com">Martin Tóth</author>
+    <author href="http://lkd.to/ezimir" email="ezimir@gmail.com">ezimir</author>
     <description>Tweet anywhere + Shows tweet count for every URL</description>
     <icon src="twitter.png" />
 

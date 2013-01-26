@@ -53,18 +53,18 @@ window.addEventListener('load', function() {
         var tab = opera.extension.tabs.getFocused();
         if (tab) {
             var url = 'http://urls.api.twitter.com/1/urls/count.json?url=' + encodeURIComponent(tab.url),
-                cached = cache[tab.url];
+                cached = window.localStorage['tweetcount-' + tab.url + '-timestamp'];
 
-            if (typeof cached !== 'undefined' && (new Date()).getTime() - cached.timestamp < 30 * 60 * 1000) {
-                toggleButton(true, cached.count);
+            opera.postError(cached);
+
+            if (typeof cached !== 'undefined' && (new Date()).getTime() - cached < 30 * 60 * 1000) {
+                toggleButton(true, window.localStorage['tweetcount-' + tab.url + '-count']);
                 return;
             }
 
             xhr(url, function (data) {
-                cache[tab.url] = {
-                    count: data.count,
-                    timestamp: (new Date()).getTime()
-                }
+                window.localStorage['tweetcount-' + tab.url + '-timestamp'] = (new Date()).getTime();
+                window.localStorage['tweetcount-' + tab.url + '-count'] = data.count;
                 toggleButton(true, data.count);
             });
         } else {
