@@ -14,6 +14,7 @@ Description
 Motivation
 ----------
 My tweeting happens almost always like this: 
+
 1. select and copy text on page (article name/title)
 2. paste it into tweet box
 3. copy URL
@@ -21,6 +22,7 @@ My tweeting happens almost always like this:
 5. add comment
 
 With this extension it's down to (because title is often what I'm selecting):
+
 1. click extension icon
 2. comment
 
