@@ -8,18 +8,20 @@ Description
 - icon badge shows how many tweets were made for current URL
     - uses http://urls.api.twitter.com/1/urls/count.json to determine tweet count
     - counts are cached for 30 minutes
-- clicking on icon open popup with prefilled page title and URL
-- if there is a selection on current tab, that is used as tweet prefill
+- clicking on icon opens a popup with prefilled page title and URL (Tweet Intent)
+- if there is a selection on current tab, that is used as tweet text prefill
 
 Motivation
 ----------
-My tweeting happens almost always like this: 
+I tweet almost always like this: 
 
 1. select and copy text on page (article name/title)
 2. paste it into tweet box
 3. copy URL
-4. past it into tweet box
+4. paste it into tweet box
 5. add comment
+
+That's quite a lot of tab switching/keystrokes just for one tweet. 
 
 With this extension it's down to (because title is often what I'm selecting):
 
