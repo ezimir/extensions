@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" id="opera-tweet">
+    <name>Opera Tweet</name>
+    <description>Tweet anywhere</description>
+    <author href="http://lkd.to/ezimir" email="ezimir@gmail.com">Martin Tóth</author>
+    <icon src="twitter.png" />
+
+    <access origin="http://urls.api.twitter.com/" />
+</widget>
