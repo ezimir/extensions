@@ -20,6 +20,7 @@ I tweet almost always like this:
 3. copy URL
 4. paste it into tweet box
 5. add comment
+6. tweet
 
 That's quite a lot of tab switching/keystrokes just for one tweet. 
 
@@ -27,6 +28,7 @@ With this extension it's down to (because title is often what I'm selecting):
 
 1. click extension icon
 2. comment
+3. tweet
 
 Credit
 ------
