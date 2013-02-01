@@ -3,6 +3,11 @@ Opera Tweet Extension
 
 Simple tweeting extension for Opera. 
 
+Install
+-------
+
+Download [tweet.oex](https://github.com/ezimir/OperaTweetExtension/raw/master/tweet.oex), drag and drop on Opera window.
+
 Description
 -----------
 - icon badge shows how many tweets were made for current URL
