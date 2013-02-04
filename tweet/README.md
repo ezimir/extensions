@@ -6,7 +6,7 @@ Simple tweeting extension for Opera.
 Install
 -------
 
-Download [tweet.oex](https://github.com/ezimir/OperaTweetExtension/raw/master/tweet.oex), drag and drop on Opera window.
+Download [tweet.oex](https://github.com/ezimir/opera-extensions/raw/master/tweet.oex), drag and drop on Opera window.
 
 Description
 -----------
