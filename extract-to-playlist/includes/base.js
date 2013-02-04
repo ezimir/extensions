@@ -11,7 +11,7 @@ opera.extension.onmessage = function(event) {
             callback.textContent = '(' + init.toString() + ')();';
             document.body.appendChild(callback);
         }
-        fr.readAsText(opera.extension.getFile('jquery.min.js'));
+        fr.readAsText(opera.extension.getFile('/jquery.min.js'));
     }
 };
 
