@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns="http://www.w3.org/ns/widgets" id="https://github.com/ezimir/opera-extensions/extract-to-playlist" version="1.0">
+    <name>Opera Tweet</name>
+
+    <author href="http://lkd.to/ezimir" email="ezimir@gmail.com">ezimir</author>
+    <description>Extract YouTube links to playlist</description>
+    <icon src="yt.png" />
+
+    <access origin="http://urls.api.twitter.com/" />
+</widget>
