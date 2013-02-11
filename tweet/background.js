@@ -17,8 +17,8 @@ window.addEventListener('load', function() {
         icon: 'twitter.png',
         popup: {
             href: 'http://twitter.com/share',
-            width: '550px',
-            height: '305px'
+            width: 550,
+            height: 305
         },
         onclick: function () {
             opera.extension.tabs.getFocused().postMessage('');
@@ -36,7 +36,7 @@ window.addEventListener('load', function() {
             title = event.data.length ? event.data : tab.title;
 
         button.popup.href = 'http://twitter.com/share?url=' + encodeURIComponent(tab.url) + '&text=' + encodeURIComponent(title);
-    }
+    };
 
     function toggleButton(enabled, text) {
         if (typeof text !== 'undefined') {
