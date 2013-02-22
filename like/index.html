@@ -9,12 +9,12 @@
                 icon: 'facebook.png',
                 popup: {
                     href: 'https://www.facebook.com/plugins/like.php',
-                    width: 150,
-                    height: 50
+                    width: 100,
+                    height: 20
                 },
                 onclick: function () {
                     var tab = opera.extension.tabs.getFocused();
-                    button.popup.href = 'https://www.facebook.com/plugins/like.php?href=' + encodeURIComponent(tab.url) + '&send=true&layout=button_count&width=150&show_faces=true&font=trebuchet+ms&colorscheme=light&action=like&height=21&appId=114370451982089';
+                    button.popup.href = 'https://www.facebook.com/plugins/like.php?href=' + encodeURIComponent(tab.url) + '&layout=button_count&width=100&font=trebuchet+ms&colorscheme=light&action=like&height=21&appId=114370451982089';
                 }
             });
             opera.contexts.toolbar.addItem(button);
