@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" id="https://github.com/ezimir/opera-extensions/tweet-to-playlist" version="1.0">
+<widget xmlns="http://www.w3.org/ns/widgets" id="https://github.com/ezimir/opera-extensions/tweet-to-playlist" version="1.0.1">
     <name>Opera Tweet</name>
 
     <author href="http://lkd.to/ezimir" email="ezimir@gmail.com">ezimir</author>

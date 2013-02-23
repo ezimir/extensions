@@ -38,9 +38,28 @@ window.addEventListener('load', function() {
         button.popup.href = 'http://twitter.com/share?url=' + encodeURIComponent(tab.url) + '&text=' + encodeURIComponent(title);
     };
 
-    function toggleButton(enabled, text) {
-        if (typeof text !== 'undefined') {
-            button.badge.textContent = text;
+    function format(n) {
+        var units = ['k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'];
+
+        for (var i = units.length; i >= 0; i--) {
+            var unit = Math.pow(1000, i + 1);
+
+            if (n >= unit) {
+                var result = (n / unit).toPrecision(2);
+                if (result.toString().length > 3) {
+                    result = Math.floor(result);
+                }
+
+                return result + units[i];
+            }
+        }
+
+        return n;
+    }
+
+    function toggleButton(enabled, num) {
+        if (typeof num !== 'undefined') {
+            button.badge.textContent = format(~~num);
         }
 
         button.badge.display = enabled ? 'block' : 'none';
