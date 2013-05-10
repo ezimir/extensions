@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget xmlns="http://www.w3.org/ns/widgets" id="https://github.com/ezimir/opera-extensions/like" version="1.0">
+<widget xmlns="http://www.w3.org/ns/widgets" id="https://github.com/ezimir/extensions/tree/master/Opera/like" version="1.0">
     <name>Opera Like</name>
 
     <author href="http://lkd.to/ezimir" email="ezimir@gmail.com">ezimir</author>
