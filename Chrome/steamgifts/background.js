@@ -13,10 +13,12 @@ function getHtml(html_string) {
 }
 
 function getGift(gift_url, points, page) {
+    console.log('getting: ', gift_url);
     $.get(SITE_URL + gift_url, function (data) {
         var $result = getHtml(data);
 
         if ($result.find('#form_enter_giveaway a').text() === 'Missing Base Game') {
+            console.log('missing base game');
             missing_base_game = JSON.parse(localStorage['missing_base_game']);
             missing_base_game.push(gift_url);
             localStorage['missing_base_game'] = JSON.stringify(missing_base_game);
@@ -35,6 +37,7 @@ function getGift(gift_url, points, page) {
 
 function getPage(page) {
     var page_url = SITE_URL + '/open/page/' + page;
+    console.log('getting: ', page_url);
     $.get(page_url, function (data) {
         var $result = getHtml(data),
             missing_base_game = JSON.parse(localStorage['missing_base_game']);
@@ -47,11 +50,14 @@ function getPage(page) {
             return $.inArray(gift_url, missing_base_game) === -1;
         });
 
+        console.log('posts: ', $posts.length);
         if ($posts.length) {
             for (var i = $posts.length - 1; i >= 0; i--) {
                 var $post = $posts.eq(i),
                     points_needed = /\((\d+)P\)/.exec($post.find('.title span').text())[1];
 
+                console.log('post: ', $post.find('.title a').text());
+                console.log('points: ', points_needed, ' / ', POINTS);
                 if (points_needed > POINTS) {
                     return;
                 }
@@ -76,6 +82,7 @@ function start() {
             pages = ~~(posts / 40) + 1;
 
         POINTS = ~~(/\d+/.exec($result.find('#navigation a.arrow').text())[0]);
+        console.log('Points: ', POINTS);
         chrome.browserAction.setBadgeText({ text: POINTS.toString() });
 
         getPage(pages);
