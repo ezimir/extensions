@@ -2,6 +2,10 @@
 var SITE_URL = 'http://www.steamgifts.com',
     POINTS = 0;
 
+if (typeof localStorage['missing_base_game'] === 'undefined' || !localStorage['missing_base_game']) {
+    localStorage['missing_base_game'] = JSON.stringify([]);
+}
+
 function getHtml(html_string) {
     return $('<div>', {
         html: html_string.replace(/<img[^>]+>/g, '')
@@ -11,6 +15,12 @@ function getHtml(html_string) {
 function getGift(gift_url) {
     $.get(SITE_URL + gift_url, function (data) {
         var $result = getHtml(data);
+
+        if ($result.find('#form_enter_giveaway a').text() === 'Missing Base Game') {
+            missing_base_game = JSON.parse(localStorage['missing_base_game']);
+            missing_base_game.push(gift_url);
+            localStorage['missing_base_game'] = JSON.stringify(missing_base_game);
+        }
 
         $.post(SITE_URL + gift_url, {
             form_key: $result.find('#form_enter_giveaway input').val(),
@@ -22,11 +32,15 @@ function getGift(gift_url) {
 function getPage(page) {
     var page_url = SITE_URL + '/open/page/' + page;
     $.get(page_url, function (data) {
-        var $result = getHtml(data);
+        var $result = getHtml(data),
+            missing_base_game = JSON.parse(localStorage['missing_base_game']);
 
         var $posts = $result.find('.ajax_gifts .post:not(.fade)').filter(function () {
             var $contributor = $(this).find('.contributor_only');
             return $contributor.length === 0 || $contributor.hasClass('green');
+        }).filter(function () {
+            var gift_url = $(this).find('.title a').attr('href');
+            return $.inArray(gift_url, missing_base_game) === -1;
         });
 
         if ($posts.length) {
