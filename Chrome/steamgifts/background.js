@@ -30,6 +30,7 @@ function getGift(gift_url, points, page) {
             enter_giveaway: 1
         }, function () {
             POINTS -= points;
+            chrome.browserAction.setBadgeText({ text: POINTS.toString() });
             getPage(page);
         });
     });
