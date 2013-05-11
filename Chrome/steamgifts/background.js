@@ -12,7 +12,7 @@ function getHtml(html_string) {
     });
 }
 
-function getGift(gift_url) {
+function getGift(gift_url, points, page) {
     $.get(SITE_URL + gift_url, function (data) {
         var $result = getHtml(data);
 
@@ -20,11 +20,15 @@ function getGift(gift_url) {
             missing_base_game = JSON.parse(localStorage['missing_base_game']);
             missing_base_game.push(gift_url);
             localStorage['missing_base_game'] = JSON.stringify(missing_base_game);
+            return getPage(page);
         }
 
         $.post(SITE_URL + gift_url, {
             form_key: $result.find('#form_enter_giveaway input').val(),
             enter_giveaway: 1
+        }, function () {
+            POINTS -= points;
+            getPage(page);
         });
     });
 }
@@ -52,7 +56,7 @@ function getPage(page) {
                     return;
                 }
 
-                return getGift($post.find('.title a').attr('href'));
+                return getGift($post.find('.title a').attr('href'), points_needed, page);
             };
         }
 
