@@ -89,7 +89,7 @@ function start() {
         getPage(pages);
     });
 
-    window.setTimeout(start, 10 * 60 * 1000); // check every 10 minutes
+    window.setTimeout(start, 15 * 60 * 1000); // check every 15 minutes
 }
 
 
