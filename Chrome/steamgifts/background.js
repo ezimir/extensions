@@ -55,9 +55,11 @@ function getPage(page) {
         if ($posts.length) {
             for (var i = $posts.length - 1; i >= 0; i--) {
                 var $post = $posts.eq(i),
+                    title = $post.find('.title a').text(),
                     points_needed = /\((\d+)P\)/.exec($post.find('.title span').text())[1];
 
-                console.log('post: ', $post.find('.title a').text());
+                chrome.browserAction.setTitle({ title: 'Next: ' + title + ' (' + points_needed + ') (page: ' + page + ')' });
+                console.log('post: ', title);
                 console.log('points: ', points_needed, ' / ', POINTS);
                 if (points_needed > POINTS) {
                     return;
