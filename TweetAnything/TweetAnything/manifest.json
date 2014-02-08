@@ -12,13 +12,14 @@
         "name": "Martin Tóth",
         "url": "http://lkd.to/ezimir"
     },
+    "homepage_url": "https://github.com/ezimir/extensions/tree/master/TweetAnything",
 
     "permissions": [
         "tabs",
         "*://*/*"
     ],
 
-    "background": {"scripts": ["background.js"]},
+    "background": { "scripts": ["background.js"] },
     "browser_action": {
         "default_icon": "twitter128.png",
         "default_title": "Tweet"
