@@ -15,13 +15,20 @@
     "homepage_url": "https://github.com/ezimir/extensions/tree/master/LikeAnything",
 
     "permissions": [
-        "tabs"
+        "tabs",
+        "https://www.facebook.com/plugins/like.php*"
     ],
 
     "background": { "scripts": ["background.js"] },
     "browser_action": {
         "default_icon": "like128.png",
         "default_title": "Like"
-    }
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://www.facebook.com/plugins/like.php*"],
+            "css": ["likebox.css"]
+        }
+    ]
 }
 

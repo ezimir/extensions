@@ -20,7 +20,7 @@ chrome.browserAction.onClicked.addListener(function() {
                 url: 'https://www.facebook.com/plugins/like.php?href=' + encodeURIComponent(tab.url) + '&width=150&layout=box_count&action=like&show_faces=true&share=true&height=65&appId=1378789829056094',
                 left: screen.width - 150,
                 top: 100,
-                height: 150,
+                height: 175,
                 width: 100,
                 type: 'popup'
             });
