@@ -1,10 +1,39 @@
 
+function openTwitter(url_append) {
+    var url = 'https://twitter.com/';
+    if (typeof url_append !== 'undefined') {
+        url += url_append;
+    }
+    chrome.tabs.create({
+        url: url
+    });
+}
+
+
+var double_click = false;
+
 // inject script when icon is clicked
 chrome.browserAction.onClicked.addListener(function() {
-    chrome.tabs.executeScript(null, {
-        // script sends current selection text back
-        code: 'chrome.runtime.sendMessage({ text: window.getSelection().toString() });'
-    });
+    if (double_click) {
+        double_click = window.clearTimeout(double_click);
+        return openTwitter();
+    }
+
+    // set up double click tracking (let's consider 250 ms a treshold)
+    double_click = window.setTimeout(function () {
+        double_click = window.clearTimeout(double_click);
+
+        // execute single click action (i.e. double click timed out)
+        chrome.tabs.executeScript(null, {
+            // script sends current selection text back
+            code: 'chrome.runtime.sendMessage({ text: window.getSelection().toString() });'
+        }, function (result) {
+            // code wasn't executed or result would be [list of results], or even [null]
+            if (typeof result === 'undefined') {
+                openTwitter();
+            }
+        });
+    }, 250);
 });
 
 // listen for messages from injected script
@@ -14,11 +43,10 @@ chrome.runtime.onMessage.addListener(function (request, sender) {
         var tab = tabs[0];
 
         // open new tab with twitter intent pre-filled
-        chrome.tabs.create({
-            url: 'http://twitter.com/share' +
-                '?url=' + encodeURIComponent(tab.url) +
-                '&text=' + encodeURIComponent(request.text ? request.text : tab.title)
-        });
+        openTwitter(
+            'share?url=' + encodeURIComponent(tab.url) +
+            '&text=' + encodeURIComponent(request.text ? request.text : tab.title)
+        );
     });
 });
 
