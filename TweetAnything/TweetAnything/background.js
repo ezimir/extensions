@@ -50,7 +50,7 @@ function format(n) {
 // utility function to udpate badge text
 function setBadgeText(number) {
     chrome.browserAction.setBadgeText({ text: format(number).toString() });
-    chrome.browserAction.setTitle({ title: number });
+    chrome.browserAction.setTitle({ title: number.toString() });
 }
 
 function clearBadgeText() {
